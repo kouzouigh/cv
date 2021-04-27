@@ -1,11 +1,10 @@
-.DS_Store
-*.fls
-*.fdb_latexmk
-*.pdf
-*.xdv
-*.gz
-*.pyg
-*.log
 *.aux
-*.synctex(busy)
+*.dvi
+*.fdb_latexmk
+*.fls
+*.log
 *.out
+
+# Mac
+.DS_Store
+.idea/
