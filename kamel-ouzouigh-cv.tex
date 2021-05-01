@@ -1,0 +1,193 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{libertine}
+\usepackage{fontawesome}
+\usepackage{longtable}
+\usepackage[cm]{fullpage}
+
+% headers and footers
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyfoot[L]{Kamel Ouzouigh}
+\fancyfoot[C]{Page \thepage\ of \pageref*{LastPage}}
+\fancyfoot[R]{\today}
+\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+
+\usepackage{tikz}
+\definecolor{tagbg}{RGB}{225,236,244}
+\definecolor{tagtxt}{RGB}{88,115,159}
+\newcommand{\sotag}[1]{\tikz[baseline]{\node[anchor=base, rounded corners=0.5ex, text height=1.5ex, text depth=.25ex, fill=tagbg, draw=tagbg, text=tagtxt] {#1};}}
+
+% Helpers for adding job entries
+\newcommand{\job}[2]{\large\sffamily \textbf{#1} at \textbf{#2}}
+\newcommand{\sep}{\multicolumn{2}{c}{}\\}
+
+% tweak the url colors
+\usepackage{hyperref}
+\definecolor{linkcolor}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolor, linkcolor=linkcolor}
+
+% nicer-looking section titles
+\usepackage{titlesec}
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{1em}{3pt}
+
+
+% Globally modify itemsep on itemize environment
+\usepackage{enumitem}
+\setitemize{itemsep=4pt}
+%\usepackage{fontawesome}
+%\AtBeginDocument{\recomputelengths}
+
+%----------------------------------------------------------------------------------
+%  Fork me on GitHub
+%----------------------------------------------------------------------------------
+
+\usepackage{tikz}
+\usepackage{ifthen}
+\usepackage{xcolor}
+\usetikzlibrary{shadows.blur}
+
+\definecolor{forkmebg}{HTML}{3873b3}
+\definecolor{forkmefg}{HTML}{eeeeee}
+
+\newcommand{\forkme}{
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[rotate=45, shift={(0, -3.2cm)}] at (current page.north west) {
+            \begin{tikzpicture}[remember picture, overlay]
+                \node[fill=forkmebg, text centered, minimum width=50em, minimum height=3.0em, blur shadow, shadow yshift=0pt, shadow xshift=0pt, shadow blur radius=.4em, shadow opacity=50](fmogh) at (0pt, 0pt) {}; % workaround: text/link see below
+                \draw[forkmefg!60, dashed, line width=.08em, dash pattern=on .5em off 1.5\pgflinewidth] (-25em,1.2em) rectangle (25em,-1.2em);
+            \end{tikzpicture}
+        };
+        % workaround: the link needs to be defined using a \rotatebox{deg} because \node[rotate=deg]{\href} isn't rendered correctly
+        \node[shift={(0.8em, 1.7em)}, text centered, minimum width=50em, minimum height=3.0em, text=forkmefg](fmogh) at (0pt, -30pt) { \fontfamily{phv}\selectfont\bfseries \href{https://github.com/kouzouigh/cv}{\rotatebox{45}{\color{white}{Fork me on GitHub}}} };
+    \end{tikzpicture}
+}
+
+
+\begin{document}
+
+    \forkme
+
+% --------------------TITLE-------------
+    \par{\centering
+    {\Huge \textsc{Kamel Ouzouigh}
+    }\bigskip\par}
+
+    \hrule
+    \vspace{0.5em}
+    \begin{tabular}{rl}
+        \textsc{Phone:}     & +33 6 74 25 97 45\\
+        \textsc{Email:}     & \href{mailto:ouzouighkamel@gmail.com}{ouzouighkamel@gmail.com}\\
+        \textsc{Socials:}   & \faHome{} \href{https://kouzouigh.github.io/blog/}{blog}
+        | \faTwitter{} \href{https://twitter.com/onyme001}{twitter}
+        | \faLinkedin{} \href{https://www.linkedin.com/in/kamel-ouzouigh-senior-software-engineer/}{linkedin}
+        | \faGithub{} \href{https://github.com/kouzouigh}{github}
+
+    \end{tabular}
+
+    \section{Summary}
+    \begin{tabular}{p{0.9\textwidth}}
+        Kamel is a highly motivated Senior Software Engineer, with 13+ years in developing and architecting enterprise applications. His portfolio ranges from the user interface to middleware, infrastructure and databases.\\
+
+        Kamel is intrinsically passioned for high-quality, reliable and maintainable code. He brought passion and dedication to accomplish it.\\
+
+        Kamel is always keen on to learn new technologies, in order to improve his skills and brings new ideas to his job.\\
+        Interests: \sotag{functional-programming} \sotag{oop} \sotag{java} \sotag{testing} \sotag{ci/cd} \sotag{scala} \sotag{microservices} \sotag{architecture}
+    \end{tabular}
+
+    \section{Technical Skills}
+    \begin{tabular}{rl}
+        \textsc{Languages:}& Java, Groovy, Scala, Javascript, C\#, SQL, HTML, CSS\\
+        \textsc{Methodologies:}& Scrum, Hexagonal Architecture, TDD, Design Patterns, DDD, CI\\
+        \textsc{Tools:}& Maven, Jenkins, Sonar, Nexus, Git, Docker, Intellij, NPM, Git\\
+        \textsc{Servers:}& Tomcat, Glassfish, Wildfly, Apache\\
+        \textsc{OS:}& Linux(Debian, CentOS), MacOS\\
+        \textsc{Database:}& PostgreSQL, Oracle, SqlServer\\
+        \textsc{Security:}& PKI, HTTPS, Cryptography\\
+    \end{tabular}
+
+    \section{Work Experience}
+    \begin{longtable}{r|p{0.72\textwidth}}
+        \textsc{Since Mar 2017} & \job{Senior Software Engineer}{Docusign}, Paris \\(4 years, 2 months)
+        &\sotag{Java} \sotag{Spring} \sotag{Javascript} \sotag{React} \sotag{Wildfly} \sotag{Jenkins} \sotag{DotNet} \sotag{Azure kusto}\\&\\
+        & Design and implement an enterprise application for seal certificates production.\\
+        &- Setup project(Backend/frontend).\\
+        &- Created a CI workflow with Jenkins BlueOcean and Docker.\\       
+        &- Created a frontend with React, and Javascript.\\
+        &- Implemented the backend with Spring Boot.\\&\\
+
+        & Design and maintains ID Verfication application - Enabling customers to securely verify signers identities\\
+        &- Designed and developed user interfaces and core functionalities.\\
+        &- Integrated with Third party providers with OAuth 2.0 and OpenID Connect.\\
+        &- Collaborated with remote teams.\\\sep
+        
+        %\hline
+        %\newpage
+        %\multicolumn{2}{r}{\footnotesize\itshape (abbreviated work history below, see LinkedIn profile for full details)}\\\sep
+
+        \textsc{Jul 2015--May 2016} & \job{Lead Software Developer}{Viseo}, Paris \\(11 months)
+        &\sotag{Java} \sotag{Spring} \sotag{Javascript} \sotag{Graphite} \sotag{Tomcat} \sotag{Memcached} \sotag{Jenkins} \sotag{MongoDB}\\&\\
+        & Worked as Lead developer for SFR(a french telecommunications company) on a online shop application for selling internet connection.\\
+        \multicolumn{2}{r}{\footnotesize\itshape (cont. on the next page)}\\\sep
+        &- Improved website speed performance by using an in-memory cache solution (Memcached).\\        
+        
+        &- Maintained and improved application features.\\
+        &- Automated application release workflow.\\
+        &- Mentored and helped junior team members.\\\sep
+                
+        %\newpage
+
+        \textsc{Sep 2013--May 2015} & \job{Senior Java Developer}{Traveldoo, Expedia Group}, France \\(1 year, 8 months)
+        &\sotag{Java} \sotag{DDD} \sotag{GWT} \sotag{Weld} \sotag{Tomcat} \sotag{JPA/Hibernate} \sotag{Intellij}\\&\\
+        &Worked as FullStack developer on an expense management application.\\
+        &- Refactored legacy code.\\
+        &- Wrote frontend code with GWT (Google Web Toolkit).\\         
+        &- Implemented an Designed with Domain Driven Design concept.\\\sep        
+        %\newpage
+
+        \textsc{Oct 2008--Aug 2013} & \job{Software Developer}{Onyme, Mediatech-cx}, Lille \\(5 years)
+        &\sotag{Java} \sotag{Java EE} \sotag{Hibernate} \sotag{JMS} \sotag{JSF2} \sotag{Arquillian} \sotag{Spock} \sotag{PostgreSQL} \sotag{Glassfish} \sotag{Spock} \sotag{jQuery} \sotag{XSLT}\\&\\
+        &Lead developer of an enterprise application for customers feedback solution.\\        
+        &- Architected application with Java EE stack.\\
+        &- Implemented an event-driven architecture.\\
+        &- Mentored junior team members.\\
+        &- Setup code quality metrics and rules with the team.\\
+        &- Setup continuous integration workflow with Jenkins.\\\sep
+
+        \textsc{Jan 2007--Jun 2007} & \job{Research and Development}{University of Artois}, Engineering and Automation of The Artois (LGI2A). \\(5 months)
+        &\sotag{FICO Xpress} \sotag{AI}\\&\\
+        & Research and Development on Vehicle Routing problem with maintenance costs.\\       
+        &- Developed a model for optimization.\\
+        &- Reference: \href{https://www.lgi2a.univ-artois.fr/spip/en/directory/gilles-goncalves}{https://www.lgi2a.univ-artois.fr/spip/en/directory/gilles-goncalves}\\\sep
+
+        \textsc{Jan 2007--Jun 2007} & \job{Research and Development}{University of Boumerdes}. \\(6 months)
+        &\sotag{Java}\\&\\
+        & Optimizing the preventive maintenance costs by genetic algorithm.\\
+        &- Research and Development on reliabilities of a complex systems.\\
+        &- Wrote Genetic Algorithm based on reliability.\\\sep
+        
+    \end{longtable}
+
+    \section{Education}
+    \begin{tabular}{rl}
+        \textsc{2008}& \textbf{Master degree in Web Software Engineering} - University of Artois - France\\
+        \textsc{2007}& \textbf{Master degree in Artificial Intelligence} - University of Artois - France\\
+        \textsc{2005}& \textbf{Software Engineer} - University of Boumerdes - Algeria
+    \end{tabular}
+
+    \section{Skills and Accomplishments}
+    \begin{tabular}{rl}
+        \textsc{Languages:}& French, English, Arabic\\
+    \end{tabular}
+
+    \section{Certification}
+    \begin{tabular}{rl}
+        \textsc{OCP} &Oracle Certified Professional, Java SE 6 Programmer | Licence OC1071567\\
+    \end{tabular}
+
+\end{document}

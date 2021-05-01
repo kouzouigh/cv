@@ -16,7 +16,7 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: kamel-ouzouigh-cv-en.tex
+          root_file: kamel-ouzouigh-cv.tex
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
